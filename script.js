@@ -52,27 +52,46 @@ function addBookToLibrary() {
 
 function displayBooks() {
   let card = document.querySelector(".cards");
-  // Create card container
-  let cardContainer = document.createElement("div.card-container");
-  // Style card container
-  cardContainer.style.backgroundColor = "#171717";
-  // Append card container as a child node in the cards class
+
+  // Create elements
+  let cardContainer = document.createElement("div");
+  cardContainer.classList.add("card-container");
+  let iconContainer = document.createElement("div");
+  iconContainer.classList.add("icon");
+  let icon = document.createTextNode("x");
+  let title = document.createElement("div");
+  title.classList.add("title");
+  let titleText = document.createTextNode("Title");
+  let pages = document.createElement("div");
+  let pagesText = document.createTextNode("Pages");
+  let author = document.createElement("div");
+  let authorText = document.createTextNode("Author");
+
+  // Append elements
   card.appendChild(cardContainer);
+  cardContainer.appendChild(iconContainer);
+  iconContainer.appendChild(icon);
+  cardContainer.appendChild(title);
+  title.appendChild(titleText);
+  cardContainer.appendChild(pages);
+  pages.appendChild(pagesText);
+  cardContainer.appendChild(author);
+  author.appendChild(authorText);
 
-  // Create icon element
-  // Create title element
-  // Create pages element
-  // Create author element
-  // Append all elements as children nodes of the new card container
-  // Style children nodes
-
-  //   for (let i = 0; i < myLibrary.length; i++) {
-  //     console.log(myLibrary[i]);
-  //   }
+  // Style elements
+  cardContainer.style.display = "flex";
+  cardContainer.style.flexDirection = "column";
+  cardContainer.style.alignItems = "center";
+  cardContainer.style.padding = "5px 20px 20px 20px";
+  cardContainer.style.color = "white";
+  cardContainer.style.backgroundColor = "#171717";
+  iconContainer.style.alignSelf = "flex-end";
+  iconContainer.style.fontSize = "1.5rem";
+  title.style.fontSize = "3rem";
+  pages.style.padding = "40px 0";
+  author.style.fontSize = "1.5rem";
 }
-
-let card = document.querySelector(".cards");
 
 addBookToLibrary();
 
-// displayBooks();
+displayBooks();

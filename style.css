@@ -23,7 +23,6 @@ body {
 #content {
   height: 70%;
   background-color: #f5f5f5;
-  /* padding: 0 2rem; */
   overflow: auto;
 }
 
@@ -61,6 +60,7 @@ button:active {
 }
 
 /*Test for UI*/
+/*
 .card {
   display: flex;
   flex-direction: column;
@@ -89,7 +89,7 @@ button:active {
 .card > .author {
   font-size: 1.5rem;
 }
-
+*/
 /*End of test for UI*/
 #footer {
   display: flex;
