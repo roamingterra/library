@@ -71,11 +71,14 @@ function displayBooks() {
     let iconContainer = document.createElement("div");
     iconContainer.classList.add("icon");
     let icon = document.createTextNode("x");
+    let titleContainer = document.createElement("div");
+    titleContainer.classList.add("title-container");
     let title = document.createElement("div");
-    title.classList.add("title");
     let titleText = document.createTextNode(myLibrary[i].title);
     let pages = document.createElement("div");
     let pagesText = document.createTextNode(myLibrary[i].numOfPages);
+    let authorContainer = document.createElement("div");
+    authorContainer.classList.add("author-container");
     let author = document.createElement("div");
     let authorText = document.createTextNode(myLibrary[i].author);
 
@@ -83,11 +86,13 @@ function displayBooks() {
     card.appendChild(cardContainer);
     cardContainer.appendChild(iconContainer);
     iconContainer.appendChild(icon);
-    cardContainer.appendChild(title);
+    cardContainer.appendChild(titleContainer);
+    titleContainer.appendChild(title);
     title.appendChild(titleText);
     cardContainer.appendChild(pages);
     pages.appendChild(pagesText);
-    cardContainer.appendChild(author);
+    cardContainer.appendChild(authorContainer);
+    authorContainer.appendChild(author);
     author.appendChild(authorText);
 
     // Style elements
@@ -99,10 +104,16 @@ function displayBooks() {
     cardContainer.style.backgroundColor = "#171717";
     iconContainer.style.alignSelf = "flex-end";
     iconContainer.style.fontSize = "1.5rem";
-    title.style.fontSize = "3rem";
+    titleContainer.style.width = "100%";
+    titleContainer.style.height = "101px";
+    title.style.fontSize = "1.7em";
     title.style.textAlign = "center";
-    pages.style.padding = "40px 0";
-    author.style.fontSize = "1.5rem";
+    pages.style.padding = "0 0 40px 0";
+    pages.style.fontSize = "1rem";
+    authorContainer.style.width = "100%";
+    authorContainer.style.height = "28.5px";
+    author.style.fontSize = "1.5em";
+    author.style.textAlign = "center";
   }
 }
 
