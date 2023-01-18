@@ -8,49 +8,48 @@
     <title>Library</title>
   </head>
   <body>
+    <!-- For Testing UI Purposes -->
+    <div class="form-container">
+      <div class="cancel">x</div>
+      <form action="./script.js" method="post" id="form">
+        <div class="form-title">
+          <label for="title">TITLE</label>
+          <input type="text" id="title" required maxlength="30" />
+        </div>
+        <div class="form-author">
+          <label for="author">AUTHOR</label>
+          <input type="text" id="author" required maxlength="15" />
+        </div>
+        <div class="form-number-of-pages">
+          <label for="number-of-pages">NUMBER OF PAGES</label>
+          <input
+            type="number"
+            id="number-of-pages"
+            required
+            min="1"
+            max="10000"
+          />
+        </div>
+        <div class="form-read">
+          <label for="read">WAS THIS BOOK READ?</label>
+          <div class="check-box-container">
+            <div>YES</div>
+            <input type="checkbox" name="decision" id="read" value="YES" />
+          </div>
+        </div>
+        <button type="submit" id="submit" form="form" onclick="addBook()">
+          SUBMIT
+        </button>
+        <div></div>
+      </form>
+    </div>
+    <!-- End of Testing UI Purposes -->
     <div id="header">Library</div>
     <div id="content">
       <div class="button-wrapper">
         <button class="add-book">+ Add Book</button>
       </div>
-      <div class="cards">
-        <!--Test for UI-->
-        <!-- <div class="card">
-          <div class="icon">
-            <div>x</div>
-          </div>
-          <div class="title">Title</div>
-          <div class="page-number">Page Number</div>
-          <div class="author">Author</div>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <div>x</div>
-          </div>
-          <div class="title">Title</div>
-          <div class="page-number">Page Number</div>
-          <div class="author">Author</div>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <div>x</div>
-          </div>
-          <div class="title">Title</div>
-          <div class="page-number">Page Number</div>
-          <div class="author">Author</div>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <div>x</div>
-          </div>
-          <div class="title">Title</div>
-          <div class="page-number">Page Number</div>
-          <div class="author">Author</div>
-        </div> -->
-      </div>
+      <div class="cards"></div>
     </div>
     <div id="footer">
       <div class="item-1">Website created by Daniel Ballerini</div>

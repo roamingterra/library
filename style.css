@@ -3,6 +3,11 @@
   src: url(./fonts/RobotoCondensed-Regular.ttf);
 }
 
+@font-face {
+  font-family: RobotoCondensedBold;
+  src: url(./fonts/RobotoCondensed-Bold.ttf);
+}
+
 html,
 body {
   height: 100%;
@@ -49,7 +54,78 @@ button:hover {
 button:active {
   background-color: #171717;
 }
+/* For testing UI purposes*/
+.form-container > .cancel {
+  position: absolute;
+  left: 385px;
+  top: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 54vh;
+  left: 50vw;
+  margin-top: -150px;
+  margin-left: -210px;
+  width: 420px;
+  height: 300px;
+  z-index: 100;
+  border-radius: 20px;
+  background-color: #ff6c00;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-read {
+  gap: 5px;
+}
+
+.check-box-container {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+button[id="submit"] {
+  border-radius: 50px;
+  padding: 10px;
+  font-family: "RobotoCondensedBold";
+  font-size: 1rem;
+  background-color: white;
+  color: #171717;
+  border: 0;
+}
+
+button[id="submit"]:hover {
+  background-color: #171717;
+  color: white;
+}
+
+button[id="submit"]:active {
+  background-color: white;
+  color: #171717;
+}
+
+/* End of testing UI purposes*/
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
@@ -59,38 +135,6 @@ button:active {
   padding: 20px 50px 20px 50px;
 }
 
-/*Test for UI*/
-/*
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 5px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: white;
-  background-color: #171717;
-}
-
-.card > .icon {
-  align-self: flex-end;
-  font-size: 1.5rem;
-}
-
-.card > .title {
-  font-size: 3rem;
-}
-
-.card > .page-number {
-  padding: 40px 0;
-}
-
-.card > .author {
-  font-size: 1.5rem;
-}
-*/
-/*End of test for UI*/
 #footer {
   display: flex;
   flex-direction: column;

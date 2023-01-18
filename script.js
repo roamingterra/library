@@ -53,13 +53,29 @@ function addBookToLibrary() {
   // Store new book object into array
   myLibrary.push(object3);
 
+  // Populate library with another book for the time being
+  let object4 = new Book();
+  object4.title = "Lord of the Flies fellowship of";
+  object4.author = "Some guy that w";
+  object4.numOfPages = 400;
+  object4.read = "Yes";
+
+  // Store new book object into array
+  myLibrary.push(object4);
+
   // THIS IS ALL WRONG, BECAUSE AFTER THE OBJECT IS STORED IN THE ARRAY,
   // I AM STILL MODIFYING THE OBJECT AND MAKING ANOTHER COPY OF THE SAME
   // OBJECT IN THE ARRAY. I NEED TO CREATE A NEW OBJECT, FILL IT WITH NEW BOOK INFO,
   // THEN STORE THAT NEW BOOK OBJECT INTO THE LIBRARY ARRAY
 }
 
-// Function to display book (displayed in the console for the time being)
+function addBook() {
+  let button = document.querySelector("button");
+  button.addEventListener("click", () => {
+    // Create elements
+    let formContainer = document.createElement("div");
+  });
+}
 
 function displayBooks() {
   let card = document.querySelector(".cards");
