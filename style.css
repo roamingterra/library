@@ -54,7 +54,8 @@ button:hover {
 button:active {
   background-color: #171717;
 }
-/* For testing UI purposes*/
+
+/* Modal form*/
 .form-container > .cancel {
   position: absolute;
   left: 385px;
@@ -64,7 +65,7 @@ button:active {
 }
 
 .form-container {
-  display: flex;
+  display: none; /* Hidden by default*/
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -90,6 +91,10 @@ form {
 form > div {
   display: flex;
   flex-direction: column;
+}
+
+input[type="number"] {
+  width: 139px;
 }
 
 .form-read {
@@ -125,7 +130,7 @@ button[id="submit"]:active {
   color: #171717;
 }
 
-/* End of testing UI purposes*/
+/* End of Modal Form*/
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
