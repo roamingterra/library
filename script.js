@@ -10,12 +10,11 @@ function Book(title, author, numOfPages, read) {
 
 // Controls tbe New Book form
 function addBook() {
-  let body = document.querySelector("body");
   let formContainer = document.querySelector(".form-container");
   let buttonAddBook = document.querySelector(".add-book");
   let cancel = document.querySelector(".cancel");
 
-  // When the user clicks on the  Add Book button
+  // When the user clicks on the Add Book button
   buttonAddBook.addEventListener("click", () => {
     formContainer.style.display = "flex";
   });
@@ -25,7 +24,7 @@ function addBook() {
     formContainer.style.display = "none";
   });
 
-  //   When the user clicks anywhere outside of the modal, close it
+  // When the user clicks anywhere outside of the modal, close it
   document.addEventListener("click", (event) => {
     if (
       !event.target.closest(".form-container") && // The closest method looks for the parent .form-container when anything inside is clicked
@@ -56,7 +55,7 @@ function displayBooks() {
     let title = document.createElement("div");
     let titleText = document.createTextNode(myLibrary[i].title);
     let pages = document.createElement("div");
-    let pagesText = document.createTextNode(myLibrary[i].numOfPages);
+    let pagesText = document.createTextNode(myLibrary[i].numOfPages + " pages");
     let authorContainer = document.createElement("div");
     authorContainer.classList.add("author-container");
     let author = document.createElement("div");
@@ -119,4 +118,10 @@ form.addEventListener("submit", (event) => {
   myLibrary.push(object);
 
   displayBooks();
+
+  // When the user submits the form, the form closes and the user input gets cleared from the input elements
+  let formContainer = document.querySelector(".form-container");
+
+  formContainer.style.display = "none";
+  form.reset();
 });
