@@ -47,13 +47,14 @@ function displayBooks() {
     // Create elements
     let cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
-    let iconContainer = document.createElement("div");
-    iconContainer.classList.add("icon");
-    let icon = document.createTextNode("x");
+    let removeContainer = document.createElement("div");
+    removeContainer.classList.add("remove");
+    let remove = document.createTextNode("x");
     let titleContainer = document.createElement("div");
     titleContainer.classList.add("title-container");
     let title = document.createElement("div");
     let titleText = document.createTextNode(myLibrary[i].title);
+    let read = document.createElement("img");
     let pages = document.createElement("div");
     let pagesText = document.createTextNode(myLibrary[i].numOfPages + " pages");
     let authorContainer = document.createElement("div");
@@ -61,13 +62,21 @@ function displayBooks() {
     let author = document.createElement("div");
     let authorText = document.createTextNode(myLibrary[i].author);
 
+    if (myLibrary[i].read === "YES") {
+      read.src = "images/check-mark-icon.png";
+    }
+    if (myLibrary[i].read === "NO") {
+      read.src = "images/x-icon.png";
+    }
+
     // Append elements
     card.appendChild(cardContainer);
-    cardContainer.appendChild(iconContainer);
-    iconContainer.appendChild(icon);
+    cardContainer.appendChild(removeContainer);
+    removeContainer.appendChild(remove);
     cardContainer.appendChild(titleContainer);
     titleContainer.appendChild(title);
     title.appendChild(titleText);
+    cardContainer.appendChild(read);
     cardContainer.appendChild(pages);
     pages.appendChild(pagesText);
     cardContainer.appendChild(authorContainer);
@@ -81,13 +90,14 @@ function displayBooks() {
     cardContainer.style.padding = "5px 20px 20px 20px";
     cardContainer.style.color = "white";
     cardContainer.style.backgroundColor = "#171717";
-    iconContainer.style.alignSelf = "flex-end";
-    iconContainer.style.fontSize = "1.5rem";
+    removeContainer.style.alignSelf = "flex-end";
+    removeContainer.style.fontSize = "1.5rem";
     titleContainer.style.width = "100%";
     titleContainer.style.height = "101px";
     title.style.fontSize = "1.7em";
     title.style.textAlign = "center";
-    pages.style.padding = "0 0 40px 0";
+    read.style.cursor = "pointer";
+    pages.style.padding = "20px 0 20px 0";
     pages.style.fontSize = "1rem";
     authorContainer.style.width = "100%";
     authorContainer.style.height = "28.5px";
@@ -113,7 +123,12 @@ form.addEventListener("submit", (event) => {
   object.title = form.elements["title"].value;
   object.author = form.elements["author"].value;
   object.numOfPages = form.elements["number-of-pages"].value;
-  object.read = form.elements["read"].value;
+
+  if (form.elements["read"].checked) {
+    object.read = "YES";
+  } else {
+    object.read = "NO";
+  }
 
   myLibrary.push(object);
 
@@ -125,3 +140,14 @@ form.addEventListener("submit", (event) => {
   formContainer.style.display = "none";
   form.reset();
 });
+
+// Read button (READ POINT 6 IN THE EXERCISE. A FUNCTION TO TOGGLE THE READ STATUS NEEDS TO BE MADE IN THE BOOK PROTOTYPE INSTANCE)
+// let readButton = document.querySelector(".card-container > img");
+
+// readButton.addEventListener("click", () => {
+//   if (readButton.src === "images/check-mark-icon.png") {
+//     readButton.src = "images/x-icon.png";
+//   } else {
+//     readButton.src = "images/check-mark-icon.png";
+//   }
+// });
