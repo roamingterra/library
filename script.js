@@ -32,7 +32,6 @@ function addBook() {
       !event.target.matches(".add-book")
     ) {
       formContainer.style.display = "none";
-      console.log(event.target);
     }
   });
 }
