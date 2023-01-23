@@ -48,14 +48,14 @@ function displayBooks() {
     let cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
     let removeContainer = document.createElement("div");
-    removeContainer.classList.add("remove-" + myLibrary.length);
+    removeContainer.classList.add("remove-" + (i + 1));
     let remove = document.createTextNode("x");
     let titleContainer = document.createElement("div");
     titleContainer.classList.add("title-container");
     let title = document.createElement("div");
     let titleText = document.createTextNode(myLibrary[i].title);
     let read = document.createElement("img");
-    read.classList.add(myLibrary.length);
+    read.classList.add(i + 1);
     let pages = document.createElement("div");
     let pagesText = document.createTextNode(myLibrary[i].numOfPages + " pages");
     let authorContainer = document.createElement("div");
