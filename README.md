@@ -33,7 +33,8 @@ The library array and then displaying them on the UI
 
 Potential Future Considerations:
 
-1. Add cover page to each book card
-2. Make the word count for the book title and author much larger and format the cards in a way that they can fit more words
-3. Add some animation to the buttons and book cards to make the project look better
-4. Add an explanation to the read icon when hovered over
+1. Add storage capabilities to this project (the user will be able to close the application and their books will remain in the array)
+2. Add cover page to each book card
+3. Make the word count for the book title and author much larger and format the cards in a way that they can fit more words
+4. Add some animation to the buttons and book cards to make the project look better
+5. Add an explanation to the read icon when hovered over
