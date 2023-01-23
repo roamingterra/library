@@ -49,7 +49,7 @@ function displayBooks() {
     let cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
     let removeContainer = document.createElement("div");
-    removeContainer.classList.add("remove");
+    removeContainer.classList.add("remove-" + myLibrary.length);
     let remove = document.createTextNode("x");
     let titleContainer = document.createElement("div");
     titleContainer.classList.add("title-container");
@@ -57,7 +57,6 @@ function displayBooks() {
     let titleText = document.createTextNode(myLibrary[i].title);
     let read = document.createElement("img");
     read.classList.add(myLibrary.length);
-
     let pages = document.createElement("div");
     let pagesText = document.createTextNode(myLibrary[i].numOfPages + " pages");
     let authorContainer = document.createElement("div");
@@ -94,6 +93,7 @@ function displayBooks() {
     cardContainer.style.backgroundColor = "#171717";
     removeContainer.style.alignSelf = "flex-end";
     removeContainer.style.fontSize = "1.5rem";
+    removeContainer.style.cursor = "pointer";
     titleContainer.style.width = "100%";
     titleContainer.style.height = "101px";
     title.style.fontSize = "1.7em";
@@ -115,6 +115,13 @@ function displayBooks() {
       pages.style.color = "red";
       author.style.color = "red";
     }
+
+    // When x icon is clicked, book card is removed
+    removeContainer.onclick = () => {
+      let RegExp = /'[0-9]*$'/;
+      myLibrary.splice(removeContainer.className.match(RegExp), 1);
+      displayBooks();
+    };
 
     // When icon is clicked, the read status changes
     read.onclick = () => {
