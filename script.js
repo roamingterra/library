@@ -1,11 +1,12 @@
 let myLibrary = [];
 
-function Book(title, author, numOfPages, read) {
+function Book(title, author, numOfPages, read, readToggle) {
   // the constructor...
   this.title = title;
   this.author = author;
   this.numOfPages = numOfPages;
   this.read = read;
+  this.readToggle = readToggle;
 }
 
 // Controls tbe New Book form
@@ -55,6 +56,8 @@ function displayBooks() {
     let title = document.createElement("div");
     let titleText = document.createTextNode(myLibrary[i].title);
     let read = document.createElement("img");
+    read.classList.add(myLibrary.length);
+
     let pages = document.createElement("div");
     let pagesText = document.createTextNode(myLibrary[i].numOfPages + " pages");
     let authorContainer = document.createElement("div");
@@ -64,8 +67,7 @@ function displayBooks() {
 
     if (myLibrary[i].read === "YES") {
       read.src = "images/check-mark-icon.png";
-    }
-    if (myLibrary[i].read === "NO") {
+    } else if (myLibrary[i].read === "NO") {
       read.src = "images/x-icon.png";
     }
 
@@ -103,6 +105,33 @@ function displayBooks() {
     authorContainer.style.height = "28.5px";
     author.style.fontSize = "1.5em";
     author.style.textAlign = "center";
+
+    if (myLibrary[i].read === "YES") {
+      title.style.color = "#39FF14";
+      pages.style.color = "#39FF14";
+      author.style.color = "#39FF14";
+    } else if (myLibrary[i].read === "NO") {
+      title.style.color = "red";
+      pages.style.color = "red";
+      author.style.color = "red";
+    }
+
+    // When icon is clicked, the read status changes
+    read.onclick = () => {
+      if (myLibrary[read.className - 1].read === "YES") {
+        myLibrary[read.className - 1].read = "NO";
+        read.src = "images/x-icon.png";
+        title.style.color = "red";
+        pages.style.color = "red";
+        author.style.color = "red";
+      } else if (myLibrary[read.className - 1].read === "NO") {
+        myLibrary[read.className - 1].read = "YES";
+        read.src = "images/check-mark-icon.png";
+        title.style.color = "#39FF14";
+        pages.style.color = "#39FF14";
+        author.style.color = "#39FF14";
+      }
+    };
   }
 }
 
@@ -130,6 +159,14 @@ form.addEventListener("submit", (event) => {
     object.read = "NO";
   }
 
+  object.readToggle = function () {
+    if (object.read === "YES") {
+      object.read = "NO";
+    } else if (object.read === "NO") {
+      object.read = "YES";
+    }
+  };
+
   myLibrary.push(object);
 
   displayBooks();
@@ -140,14 +177,3 @@ form.addEventListener("submit", (event) => {
   formContainer.style.display = "none";
   form.reset();
 });
-
-// Read button (READ POINT 6 IN THE EXERCISE. A FUNCTION TO TOGGLE THE READ STATUS NEEDS TO BE MADE IN THE BOOK PROTOTYPE INSTANCE)
-// let readButton = document.querySelector(".card-container > img");
-
-// readButton.addEventListener("click", () => {
-//   if (readButton.src === "images/check-mark-icon.png") {
-//     readButton.src = "images/x-icon.png";
-//   } else {
-//     readButton.src = "images/check-mark-icon.png";
-//   }
-// });
