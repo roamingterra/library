@@ -6,7 +6,13 @@ function Book(title, author, numOfPages, read, readToggle) {
   this.author = author;
   this.numOfPages = numOfPages;
   this.read = read;
-  this.readToggle = readToggle;
+  this.readToggle = function () {
+    if (this.read === "YES") {
+      this.read = "NO";
+    } else if (this.read === "NO") {
+      this.read = "YES";
+    }
+  };
 }
 
 // Controls tbe New Book form
@@ -164,14 +170,6 @@ form.addEventListener("submit", (event) => {
   } else {
     object.read = "NO";
   }
-
-  object.readToggle = function () {
-    if (object.read === "YES") {
-      object.read = "NO";
-    } else if (object.read === "NO") {
-      object.read = "YES";
-    }
-  };
 
   myLibrary.push(object);
 
