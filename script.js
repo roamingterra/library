@@ -1,18 +1,19 @@
 let myLibrary = [];
 
-function Book(title, author, numOfPages, read, readToggle) {
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.numOfPages = numOfPages;
-  this.read = read;
-  this.readToggle = function () {
-    if (this.read === "YES") {
-      this.read = "NO";
-    } else if (this.read === "NO") {
-      this.read = "YES";
-    }
-  };
+class Book {
+  constructor(title, author, numOfPages, read) {
+    this.title = title;
+    this.author = author;
+    this.numOfPages = numOfPages;
+    this.read = read;
+    this.readToggle = function () {
+      if (this.read === "YES") {
+        this.read = "NO";
+      } else if (this.read === "NO") {
+        this.read = "YES";
+      }
+    };
+  }
 }
 
 // Controls tbe New Book form
