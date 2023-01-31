@@ -119,7 +119,6 @@ function displayBooks() {
     removeContainer.onclick = () => {
       let RegExp = /[0-9]*$/;
       myLibrary.splice(removeContainer.className.match(RegExp) - 1, 1);
-      console.log(removeContainer.className.match(RegExp));
       displayBooks();
     };
 
