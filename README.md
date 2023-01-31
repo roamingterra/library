@@ -13,6 +13,10 @@ Skills put into practice for this project:
 7. onclick attribute functions
 8. Modal windows with CSS and hiding them through JavaScript
 
+Extra skill put into practice with the convert-to-classes branch:
+
+1. Classes
+
 Steps taken to complete this project:
 
 1. Set up basic html skeleton
@@ -26,6 +30,8 @@ Steps taken to complete this project:
 9. Take in form submission info in the JavaScript and add book to library
 10. Add toggle function to book read status
 11. Add remove book card function
+
+Extra step taken: 12. I converted the object constructor to a class
 
 The hardest part for me was to figure out how to toggle between two images, however this proved to be a simple solution
 once I found out the technique. The other hard part was figuring out how to figure out the general process for adding books to
