@@ -44,3 +44,6 @@ Potential Future Considerations:
 3. Make the word count for the book title and author much larger and format the cards in a way that they can fit more words
 4. Add some animation to the buttons and book cards to make the project look better
 5. Add an explanation to the read icon when hovered over
+
+**_ Feb 1 2023 update _**
+I played around with and added fade in and create box animations to newly created book cards. My next goal when I get the chance will be to add a smooth transition animation when shrinking the window size and wrapping the book cards.

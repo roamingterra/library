@@ -44,13 +44,15 @@ function addBook() {
 }
 
 // Displays all books in library as cards in the UI
-function displayBooks() {
+function displayBooks(removeBook) {
   let card = document.querySelector(".cards");
 
   // Clear the cards from the UI
   card.querySelectorAll("*").forEach((n) => n.remove());
 
   for (let i = 0; i < myLibrary.length; i++) {
+    console.log(removeBook);
+
     // Create elements
     let cardContainer = document.createElement("div");
     cardContainer.classList.add("card-container");
@@ -112,6 +114,11 @@ function displayBooks() {
     author.style.fontSize = "1.5em";
     author.style.textAlign = "center";
 
+    // Add animation to newly added book
+    if (i === myLibrary.length - 1 && removeBook !== true) {
+      cardContainer.style.animation = "createBox 0.5s, fadeIn 1s";
+    }
+
     if (myLibrary[i].read === "YES") {
       title.style.color = "#39FF14";
       pages.style.color = "#39FF14";
@@ -124,9 +131,10 @@ function displayBooks() {
 
     // When x icon is clicked, book card is removed
     removeContainer.onclick = () => {
+      const removeBook = true;
       let RegExp = /[0-9]*$/;
       myLibrary.splice(removeContainer.className.match(RegExp) - 1, 1);
-      displayBooks();
+      displayBooks(removeBook); // When a book is removed and remaining books from library are created, no animations to be applied
     };
 
     // When icon is clicked, the read status changes
