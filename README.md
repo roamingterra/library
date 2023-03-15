@@ -47,3 +47,6 @@ Potential Future Considerations:
 
 **_ Feb 1 2023 update _**
 I played around with and added fade in and create box animations to newly created book cards. My next goal when I get the chance will be to add a smooth transition animation when shrinking the window size and wrapping the book cards.
+
+**_ Mar 15 2023 update _**
+Fixed a bug which made long titles with no spaces overflow off of the book card.
