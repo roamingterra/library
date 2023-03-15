@@ -106,6 +106,7 @@ function displayBooks(removeBook) {
     titleContainer.style.height = "101px";
     title.style.fontSize = "1.7em";
     title.style.textAlign = "center";
+    title.style.overflowWrap = "break-word";
     read.style.cursor = "pointer";
     pages.style.padding = "20px 0 20px 0";
     pages.style.fontSize = "1rem";
