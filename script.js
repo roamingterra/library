@@ -29,7 +29,18 @@ function addBook() {
 
   // When the user clicks on <div class="cancel"> (x) element, close the modal window
   cancel.addEventListener("click", () => {
+    const titleError = document.querySelector("#title-error");
+    const authorError = document.querySelector("#author-error");
+    const NumberOfPagesError = document.querySelector("#number-of-pages-error");
+
     formContainer.style.display = "none";
+    titleError.style.visibility = "none";
+    titleError.style.opacity = "0";
+    authorError.style.visibility = "none";
+    authorError.style.opacity = "0";
+    NumberOfPagesError.style.visibility = "none";
+    NumberOfPagesError.style.opacity = "0";
+    form.reset();
   });
 
   // When the user clicks anywhere outside of the modal, close it
@@ -38,7 +49,20 @@ function addBook() {
       !event.target.closest(".form-container") && // The closest method looks for the parent .form-container when anything inside is clicked
       !event.target.matches(".add-book")
     ) {
+      const titleError = document.querySelector("#title-error");
+      const authorError = document.querySelector("#author-error");
+      const NumberOfPagesError = document.querySelector(
+        "#number-of-pages-error"
+      );
+
       formContainer.style.display = "none";
+      titleError.style.visibility = "none";
+      titleError.style.opacity = "0";
+      authorError.style.visibility = "none";
+      authorError.style.opacity = "0";
+      NumberOfPagesError.style.visibility = "none";
+      NumberOfPagesError.style.opacity = "0";
+      form.reset();
     }
   });
 }
@@ -163,11 +187,81 @@ addBook();
 // Displays all books in library as cards in the UI
 displayBooks();
 
+// Form input validations
+const inputTitle = document.querySelector("input#title");
+const inputAuthor = document.querySelector("input#author");
+const inputNumberOfPages = document.querySelector("input#number-of-pages");
+
+function checkTitleValidity() {
+  const inputTitle = document.querySelector("input#title");
+  const titleError = document.querySelector("#title-error");
+
+  if (!inputTitle.checkValidity()) {
+    titleError.style.visibility = "visible";
+    titleError.style.opacity = "1";
+    return false;
+  } else if (inputTitle.checkValidity()) {
+    titleError.style.visibility = "none";
+    titleError.style.opacity = "0";
+    return true;
+  }
+}
+
+function checkAuthorValidity() {
+  const inputAuthor = document.querySelector("input#author");
+  const authorError = document.querySelector("#author-error");
+
+  if (!inputAuthor.checkValidity()) {
+    authorError.style.visibility = "visible";
+    authorError.style.opacity = "1";
+    return false;
+  } else if (inputAuthor.checkValidity()) {
+    authorError.style.opacity = "0";
+    authorError.style.visibility = "none";
+    return true;
+  }
+}
+
+function checkNumberOfPagesValidity() {
+  const inputNumberOfPages = document.querySelector("input#number-of-pages");
+  const NumberOfPagesError = document.querySelector("#number-of-pages-error");
+
+  if (!inputNumberOfPages.checkValidity()) {
+    NumberOfPagesError.style.visibility = "visible";
+    NumberOfPagesError.style.opacity = "1";
+    return false;
+  } else if (inputNumberOfPages.checkValidity()) {
+    NumberOfPagesError.style.opacity = "0";
+    NumberOfPagesError.style.visibility = "none";
+    return true;
+  }
+}
+
+inputTitle.addEventListener("input", checkTitleValidity);
+inputAuthor.addEventListener("input", checkAuthorValidity);
+inputNumberOfPages.addEventListener("input", checkNumberOfPagesValidity);
+
 // Take user input
 let form = document.getElementById("form");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
+  // If one of the required inputs is not valid, exit event handler and do not submit form
+  if (
+    !checkTitleValidity() ||
+    !checkAuthorValidity() ||
+    !checkNumberOfPagesValidity()
+  ) {
+    checkTitleValidity();
+    checkAuthorValidity();
+    checkNumberOfPagesValidity();
+
+    if (!checkTitleValidity()) inputTitle.focus();
+    else if (!checkAuthorValidity()) inputAuthor.focus();
+    else if (!checkNumberOfPagesValidity()) inputNumberOfPages.focus();
+    return;
+  }
 
   // Make new object from user input using the constructor
   let object = new Book();

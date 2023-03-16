@@ -74,28 +74,60 @@ button:active {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 54vh;
+  top: 425px;
   left: 50vw;
-  margin-top: -150px;
+  margin-top: -300px;
   margin-left: -210px;
   width: 420px;
-  height: 300px;
+  height: 500px;
   z-index: 100;
   border-radius: 20px;
-  background-color: #facc15;
+  background-color: #d6d3d1;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  height: 400px;
 }
 
 form > div {
   display: flex;
   flex-direction: column;
+}
+
+.error {
+  color: rgb(247, 43, 43);
+  width: 147px;
+  overflow-wrap: normal;
+  text-align: center;
+}
+
+#title-error,
+#author-error,
+#number-of-pages-error {
+  visibility: none;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+input {
+  max-width: 147px;
+  border-radius: 5px;
+}
+
+input#title:focus:invalid,
+input#author:focus:invalid,
+input#number-of-pages:focus:invalid {
+  border: 3px solid rgb(247, 43, 43);
+}
+
+input#title:valid,
+input#author:valid,
+input#number-of-pages:valid {
+  border: 3px solid rgb(38, 225, 38);
 }
 
 input[type="number"] {
