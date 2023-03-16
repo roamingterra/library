@@ -50,3 +50,6 @@ I played around with and added fade in and create box animations to newly create
 
 **_ Mar 15 2023 update _**
 Fixed a bug which made long titles with no spaces overflow off of the book card.
+
+**_ Mar 16 2023 update _**
+Added more extensive client-side form validation.
